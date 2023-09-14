@@ -40,7 +40,7 @@ jobs:
           ls -lthra ../
 
           echo results
-          ls -lthra /tmp/results
+          # ls -lthra /tmp/results
           echo tree---------------
           tree 
 
