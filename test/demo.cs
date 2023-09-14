@@ -44,7 +44,7 @@ namespace ws.SeleniumTests
         
 
         [TestMethod]
-        public void TestLink1()
+        public void TestCSSClassPrivacy()
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
@@ -77,7 +77,7 @@ namespace ws.SeleniumTests
         }
         
         [TestMethod]
-        public void TestLink2()
+        public void TestCSSClassNotPrivacy()
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
@@ -110,7 +110,7 @@ namespace ws.SeleniumTests
         
 
         [TestMethod]
-        public void TestLink4()
+        public void TestLink1()
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
@@ -139,7 +139,7 @@ namespace ws.SeleniumTests
         }
 
         [TestMethod]
-        public void TestLink5()
+        public void TestLink2()
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
