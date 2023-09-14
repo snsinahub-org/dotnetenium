@@ -6,13 +6,13 @@ using System;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
-namespace ws.SeleniumTests
+namespace ws.SeleniumTests : ExtentReport
 {
     [TestClass]
     public class DotNetSiteTests
     {
         public TestContext? TestContext { get; set; }
-        public static ExtentReports? extent;
+        public ExtentReports? extent;
         public ExtentTest test;
         // public ChromeDriver driver;
 
@@ -23,10 +23,11 @@ namespace ws.SeleniumTests
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-            extent = new ExtentReports();
+        
+            PropertiesCollection.extent = new AventStack.ExtentReports.ExtentReports();
             Console.WriteLine("Setup");
             
-             Directory.CreateDirectory("/tmp/results");
+            Directory.CreateDirectory("/tmp/results");
 
             // check if extent is null
             // if (extent == null)
@@ -42,10 +43,10 @@ namespace ws.SeleniumTests
             // Initialize ExtentReports
            
             
-            var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
-            extent.AttachReporter(htmlReporter);
-            test = extent.CreateTest("Demo");
-            // driver = GetDriver();
+            PropertiesCollection.htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
+            PropertiesCollection.extent.AttachReporter(htmlReporter);
+            PropertiesCollection.test = extent.CreateTest("Demo");
+            // PropertiesCollection.driver = GetDriver();
             
         }
 
@@ -59,7 +60,7 @@ namespace ws.SeleniumTests
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             // test = extent.CreateTest(TestContext.TestName);
-            test.Log(Status.Info, "Navigate to DotNet website");
+            PropertiesCollection.test.Log(Status.Info, "Navigate to DotNet website");
             var driver = GetDriver();
             // using (var driver = GetDriver())
             // {
