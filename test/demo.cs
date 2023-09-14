@@ -27,19 +27,6 @@ namespace ws.SeleniumTests
             extent = new ExtentReports();
             Console.WriteLine("Setup");
             
-
-
-            // check if extent is null
-            // if (extent == null)
-            // {
-            //     // extent = new ExtentReports();
-            //     Console.WriteLine("extent is null");
-            // }
-            // else
-            // {
-            //     Console.WriteLine("extent is not null");
-            // }
-
             // Initialize ExtentReports
             Directory.CreateDirectory("/tmp/results");
             
@@ -62,30 +49,29 @@ namespace ws.SeleniumTests
             test = extent.CreateTest(TestContext.TestName);
             test.Log(Status.Info, "Navigate to DotNet website");
             var driver = GetDriver();
-            // using (var driver = GetDriver())
-            // {
+            
                 
-                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+            driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
 
-                // add log from test
-                
-                //Click the Get Started button
-                driver.FindElement(By.LinkText("Privacy Policy")).Click();
-                var css = driver.FindElement(By.LinkText("Privacy Policy")).GetAttribute("class");
-                var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
+            // add log from test
+            
+            //Click the Get Started button
+            driver.FindElement(By.LinkText("Privacy Policy")).Click();
+            var css = driver.FindElement(By.LinkText("Privacy Policy")).GetAttribute("class");
+            var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
-                Console.WriteLine("CSS ---> " + css);
-                
-                Assert.AreEqual(css, "privacy");
+            Console.WriteLine("CSS ---> " + css);
+            
+            Assert.AreEqual(css, "privacy");
 
-                if (css != "privacy")
-                {
-                    test.Log(Status.Warning, "CSS class is NOT matched with privacy");
-                } else {
-                    test.Log(Status.Info, "CSS class is matched with privacy");
-                }  
+            if (css != "privacy")
+            {
+                test.Log(Status.Warning, "CSS class is NOT matched with privacy");
+            } else {
+                test.Log(Status.Info, "CSS class is matched with privacy");
+            }  
                 
-            // }
+           
         }
         
         [TestMethod]
@@ -93,31 +79,30 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            // using (var driver = GetDriver())
-            // {
-                var driver = GetDriver();
-                test = extent.CreateTest(TestContext.TestName);
-                // extent.LogInfo("TestLink2");
-                //Navigate to DotNet website
-                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
-                //Click the Get Started button
-                driver.FindElement(By.LinkText("Privacy")).Click();                
-                var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
+            
+            var driver = GetDriver();
+            test = extent.CreateTest(TestContext.TestName);
+            // extent.LogInfo("TestLink2");
+            //Navigate to DotNet website
+            driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+            //Click the Get Started button
+            driver.FindElement(By.LinkText("Privacy")).Click();                
+            var cssMenu = driver.FindElement(By.LinkText("Privacy")).GetAttribute("class");
 
-                Console.WriteLine("CSS MENU ---> " + cssMenu);
-                
-                Assert.AreNotEqual(cssMenu, "not-privacy");
+            Console.WriteLine("CSS MENU ---> " + cssMenu);
+            
+            Assert.AreNotEqual(cssMenu, "not-privacy");
 
-                if (cssMenu != "not-privacy")
-                {
-                    test.Log(Status.Warning, "CSS class is NOT matched with not-privacy");
-                } else {
-                    test.Log(Status.Info, "CSS class is matched with not-privacy");
-                }  
+            if (cssMenu != "not-privacy")
+            {
+                test.Log(Status.Warning, "CSS class is NOT matched with not-privacy");
+            } else {
+                test.Log(Status.Info, "CSS class is matched with not-privacy");
+            }  
                 
     
                 
-            // }
+       
         }
 
         
@@ -127,39 +112,28 @@ namespace ws.SeleniumTests
         {
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            // using (var driver = GetDriver())
-            // {
-                var driver = GetDriver();
-                test = extent.CreateTest(TestContext.TestName);
-                // extent.LogInfo("TestLink2");
-                //Navigate to DotNet website
-                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
-                //Click the Get Started button
-                // test url link if correct after click find element by id
+            
+            var driver = GetDriver();
+            test = extent.CreateTest(TestContext.TestName);
+            // extent.LogInfo("TestLink2");
+            //Navigate to DotNet website
+            driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+            //Click the Get Started button
+            // test url link if correct after click find element by id
 
 
-                driver.FindElement(By.Id("redirect")).Click();        
-                // assert url is correct but do not fail test if not correct
-
-                // add a selenium soft assertion to verify url
-
-
-
-                // Assert.AreEqual(driver.Url, "https://dotnet.microsoft.com/");    
-
-                // check if driver.url is matching the expected url
-                // if not matching, add a soft assertion to the test
-                if (driver.Url != "https://dotnet.microsoft.com/")
-                {
-                    test.Log(Status.Warning, "URL is not matching the expected URL");
-                } else {
-                    test.Log(Status.Info, "URL is matching the expected URL");
-                }  
+            driver.FindElement(By.Id("redirect")).Click();        
+            
+            // check if driver.url is matching the expected url
+            // if not matching, add a soft assertion to the test
+            if (driver.Url != "https://dotnet.microsoft.com/")
+            {
+                test.Log(Status.Warning, "URL is not matching the expected URL");
+            } else {
+                test.Log(Status.Info, "URL is matching the expected URL");
+            }  
                 
-                
-    
-                
-            // }
+         
         }
 
         [TestMethod]
@@ -168,29 +142,26 @@ namespace ws.SeleniumTests
             // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
             // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
             // using (var driver = GetDriver())
-            // {
-                var driver = GetDriver();
-                test = extent.CreateTest(TestContext.TestName);
-                // extent.LogInfo("TestLink2");
-                //Navigate to DotNet website
-                driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
-                //Click the Get Started button
-                // test url link if correct after click find element by id
+            
+            var driver = GetDriver();
+            test = extent.CreateTest(TestContext.TestName);
+            driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+            
 
-                test.Log(Status.Info, "Navigate to https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
-                driver.FindElement(By.Id("redirect")).Click();                
-                
-                Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
+            test.Log(Status.Info, "Navigate to https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
+            driver.FindElement(By.Id("redirect")).Click();                
+            
+            Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
 
-                if (driver.Url != "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0")
-                {
-                    test.Log(Status.Warning, "URL is not matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
-                } else {
-                    test.Log(Status.Info, "URL is matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
-                }  
+            if (driver.Url != "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0")
+            {
+                test.Log(Status.Warning, "URL is not matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
+            } else {
+                test.Log(Status.Info, "URL is matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
+            }  
     
                 
-            // }
+           
         }
 
 
