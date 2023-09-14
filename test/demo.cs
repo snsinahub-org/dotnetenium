@@ -33,6 +33,8 @@ namespace ws.SeleniumTests
             var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
             extent.AttachReporter(htmlReporter);
             test = extent.CreateTest("Demo");
+            test.Log(Status.Info, "This is a selenium test on an MVC dotnet web application");
+            test.Log(Status.Info, "Repo URL: https://github.com/snsinahub-org/dotnetenium");
             // driver = GetDriver();
             
         }
