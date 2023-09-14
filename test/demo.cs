@@ -170,7 +170,7 @@ namespace ws.SeleniumTests
             // using (var driver = GetDriver())
             // {
                 var driver = GetDriver();
-                extent.CreateTest(TestContext.TestName);
+                test = extent.CreateTest(TestContext.TestName);
                 // extent.LogInfo("TestLink2");
                 //Navigate to DotNet website
                 driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
