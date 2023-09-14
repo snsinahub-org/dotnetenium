@@ -21,7 +21,7 @@ namespace ws.SeleniumTests
         // create a method to initialize
         
 
-        [ClassInitializeAttribute]
+        [AssemblyInitialize]
         public void Setup()
         {
             extent = new ExtentReports();
