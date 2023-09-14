@@ -24,7 +24,7 @@ namespace ws.SeleniumTests
             Directory.CreateDirectory("/tmp/results");
         }
         
-        [ClassInitialize]
+        [TestInitialize]
         public void Setup()
         {
             extent = new ExtentReports();
