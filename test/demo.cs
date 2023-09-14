@@ -12,7 +12,7 @@ namespace ws.SeleniumTests
     public class DotNetSiteTests
     {
         public TestContext? TestContext { get; set; }
-        public ExtentReports? extent;
+        public static ExtentReports? extent;
         public ExtentTest test;
         // public ChromeDriver driver;
 
