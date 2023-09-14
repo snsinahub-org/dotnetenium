@@ -11,9 +11,9 @@ namespace ws.SeleniumTests
     [TestClass]
     public class DotNetSiteTests
     {
-        public TestContext? TestContext { get; set; }
-        public ExtentReports? extent;
-        public ExtentTest test;
+        public static TestContext? TestContext { get; set; }
+        public static ExtentReports? extent;
+        public static ExtentTest test;
         // public ChromeDriver driver;
 
 
@@ -24,10 +24,10 @@ namespace ws.SeleniumTests
         public static void Setup(TestContext context)
         {
         
-            PropertiesCollection.extent = new AventStack.ExtentReports.ExtentReports();
+            extent = new ExtentReports();
             Console.WriteLine("Setup");
             
-            Directory.CreateDirectory("/tmp/results");
+
 
             // check if extent is null
             // if (extent == null)
@@ -41,12 +41,12 @@ namespace ws.SeleniumTests
             // }
 
             // Initialize ExtentReports
-           
+            Directory.CreateDirectory("/tmp/results");
             
-            PropertiesCollection.htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
-            PropertiesCollection.extent.AttachReporter(htmlReporter);
-            PropertiesCollection.test = extent.CreateTest("Demo");
-            // PropertiesCollection.driver = GetDriver();
+            var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
+            extent.AttachReporter(htmlReporter);
+            test = extent.CreateTest("Demo");
+            // driver = GetDriver();
             
         }
 
