@@ -20,8 +20,8 @@ namespace ws.SeleniumTests
 
         
         
-        [TestInitialize]
-        public void Setup()
+        [ClassInitialize]
+        public void Setup(TestContext context)
         {
             extent = new ExtentReports();
             Console.WriteLine("Setup");
