@@ -30,15 +30,15 @@ namespace ws.SeleniumTests
              Directory.CreateDirectory("/tmp/results");
 
             // check if extent is null
-            if (extent == null)
-            {
-                // extent = new ExtentReports();
-                Console.WriteLine("extent is null");
-            }
-            else
-            {
-                Console.WriteLine("extent is not null");
-            }
+            // if (extent == null)
+            // {
+            //     // extent = new ExtentReports();
+            //     Console.WriteLine("extent is null");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("extent is not null");
+            // }
 
             // Initialize ExtentReports
            
