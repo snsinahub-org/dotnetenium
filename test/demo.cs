@@ -21,7 +21,7 @@ namespace ws.SeleniumTests
         
         
         [ClassInitialize]
-        public void Setup(TestContext context)
+        public static void Setup(TestContext context)
         {
             extent = new ExtentReports();
             Console.WriteLine("Setup");
