@@ -18,11 +18,7 @@ namespace ws.SeleniumTests
 
 
 
-        // create a method to initialize
-        [TestInitialize]
-        public void createDirectory() {
-            Directory.CreateDirectory("/tmp/results");
-        }
+        
         
         [TestInitialize]
         public void Setup()
