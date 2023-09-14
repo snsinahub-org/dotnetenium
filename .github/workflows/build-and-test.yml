@@ -1,0 +1,90 @@
+name: build and test
+on:
+  workflow_dispatch:
+  
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        
+      - name: copy chrome driver to tmp
+        run: |
+          ls test
+          # curl https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip --output /tmp/chromedriver.zip
+          cp test/chromedriver /tmp
+          # ls -lthra /tmp
+          chmod 744 /tmp/chromedriver
+          
+      - name: install dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x' 
+          
+      - name: build and run
+        run: |
+          dotnet build
+          dotnet run & 
+          
+      - name: run test
+        run: |
+          sleep 10
+          curl -k https://localhost:7262/
+          cd test
+          dotnet test -s .runsettings
+          ls -lthra 
+          ls -lthra /tmp
+          echo parent folder
+          ls -lthra ../
+
+          echo results
+          ls -lthra /tmp/results
+          echo tree---------------
+          tree 
+
+          echo "tar file"
+          tar -czvf test-results.tar.gz TestResults
+          
+          cp test-results.tar.gz ../
+
+          echo "results in tmp folder"
+          ls -lthra /tmp/results
+          tar -czvf /tmp/results.tar.gz /tmp/results
+          cp /tmp/results.tar.gz ../
+        continue-on-error: true
+      
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: tmp-results
+          path: results.tar.gz
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Results
+          path: test-results.tar.gz
+      
+      # - name: build
+      #   run: |
+      #     dotnet restore
+      #     dotnet build --configuration Release
+
+  # build_and_deploy:
+  #   runs-on: ubuntu-latest
+    
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v3        
+
+  #     - name: prepare
+  #       run: |         
+  #         dotnet publish -c Release -o myapp4                    
+  #         zip -r myapp4.zip myapp4/*
+  #     - name: upload artifact
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: upload.zip
+  #         path: myapp4.zip
