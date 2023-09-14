@@ -27,7 +27,7 @@ namespace ws.SeleniumTests
             extent = new ExtentReports();
             Console.WriteLine("Setup");
             
-
+             Directory.CreateDirectory("/tmp/results");
 
             // check if extent is null
             if (extent == null)
@@ -41,12 +41,12 @@ namespace ws.SeleniumTests
             }
 
             // Initialize ExtentReports
-            Directory.CreateDirectory("/tmp/results");
+           
             
             var htmlReporter = new ExtentHtmlReporter("/tmp/results/cc.html");
             extent.AttachReporter(htmlReporter);
             test = extent.CreateTest("Demo");
-            // driver = GetDriver();
+            driver = GetDriver();
             
         }
 
