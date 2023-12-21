@@ -14,8 +14,8 @@ using NUnit.Framework;
 
 namespace ws.SeleniumTests
 {
-    // [TestClass]
-  [TestFixture]
+  [TestClass]
+  // [TestFixture]
   public class DefaultSuiteTest {
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
