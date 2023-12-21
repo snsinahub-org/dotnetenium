@@ -12,10 +12,14 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+
 namespace ws.SeleniumTests
 {
   [TestClass]
-  // [TestFixture]
   public class DefaultSuiteTest {
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
