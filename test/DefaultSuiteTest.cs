@@ -20,12 +20,14 @@ namespace ws.SeleniumTests
 {
   [TestClass]
   public class DefaultSuiteTest {
+
+    public TestContext? TestContext { get; set; }
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
     private IJavaScriptExecutor js;
     
     [ClassInitialize]
-    public static void SetUp() {
+    public static void SetUp(TestContext context) {
       driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
