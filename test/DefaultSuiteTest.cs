@@ -33,7 +33,7 @@ namespace ws.SeleniumTests
     
     [ClassInitialize]
     public static void Setup(TestContext context) {
-      driver = new ChromeDriver();
+      driver =  cDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
@@ -84,6 +84,23 @@ namespace ws.SeleniumTests
     }
 
     private ChromeDriver GetDriver()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--user-data-dir .");
+            options.AddArgument("--ignore-certificate-errors");
+             options.AddArgument("headless");
+
+            options.AcceptInsecureCertificates = true;
+            
+
+           
+            return new ChromeDriver("/tmp", options);
+        }
+
+    private static ChromeDriver cDriver()
         {
             var options = new ChromeOptions();
             options.AddArgument("--headless");
