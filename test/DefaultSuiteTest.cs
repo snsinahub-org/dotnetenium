@@ -26,6 +26,9 @@ namespace ws.SeleniumTests
     public IDictionary<string, object> vars {get; private set;}
     public TestContext? TestContext { get; set; }
     private IJavaScriptExecutor js;
+
+    public static ExtentReports? extent;
+    public static ExtentTest test;
     
     [ClassInitialize]
     public static void Setup(TestContext context) {
