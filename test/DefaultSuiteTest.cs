@@ -24,7 +24,8 @@ namespace ws.SeleniumTests
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
     private IJavaScriptExecutor js;
-    [SetUp]
+    
+    [ClassInitialize]
     public void SetUp() {
       driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
@@ -51,7 +52,8 @@ namespace ws.SeleniumTests
     protected void TearDown() {
       driver.Quit();
     }
-    [Test]
+    
+   [TestMethod]
     public void untitled() {
       // Test name: Untitled
       // Step # | name | target | value | comment

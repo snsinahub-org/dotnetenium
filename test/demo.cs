@@ -15,9 +15,6 @@ namespace ws.SeleniumTests
         public static ExtentReports? extent;
         public static ExtentTest test;
         // public ChromeDriver driver;
-
-
-
         
         
         [ClassInitialize]
