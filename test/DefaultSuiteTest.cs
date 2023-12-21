@@ -22,7 +22,7 @@ namespace ws.SeleniumTests
   public class DefaultSuiteTest {
 
     // public TestContext? TestContext { get; set; }
-    private  IWebDriver driver;
+    private static IWebDriver driver;
     public static IDictionary<string, object> vars {get; private set;}
     public TestContext? TestContext { get; set; }
     private static  IJavaScriptExecutor js;
@@ -33,7 +33,7 @@ namespace ws.SeleniumTests
     
     [ClassInitialize]
     public static void Setup(TestContext context) {
-      
+      driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
