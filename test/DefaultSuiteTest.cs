@@ -42,8 +42,7 @@ namespace ws.SeleniumTests
 
    [TestMethod]
     public void untitled() {
-      test = extent.CreateTest(TestContext.TestName);
-      test.Log(Status.Info, "Navigate to DotNet website");
+      
       var driver = GetDriver();
       // Test name: Untitled
       // Step # | name | target | value | comment
