@@ -33,7 +33,7 @@ jobs:
           sleep 10
           curl -k https://localhost:7262/
           cd test
-          dotnet test -s .runsettings -v d
+          dotnet test -s .runsettings
           ls -lthra 
           ls -lthra /tmp
           echo parent folder
