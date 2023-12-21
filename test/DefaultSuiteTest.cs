@@ -24,39 +24,23 @@ namespace ws.SeleniumTests
     // public TestContext? TestContext { get; set; }
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
+    public TestContext? TestContext { get; set; }
     private IJavaScriptExecutor js;
     
     [ClassInitialize]
-    public void SetUp() {
+    public static void Setup(TestContext context)
       
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
 
-    private ChromeDriver GetDriver()
-        {
-            var options = new ChromeOptions();
-            options.AddArgument("--headless");
-            options.AddArgument("--no-sandbox");
-            options.AddArgument("--disable-dev-shm-usage");
-            options.AddArgument("--user-data-dir .");
-            options.AddArgument("--ignore-certificate-errors");
-             options.AddArgument("headless");
-
-            options.AcceptInsecureCertificates = true;
-            
-
-           
-            return new ChromeDriver("/tmp", options);
-        }
-    // [TearDown]
-    // protected void TearDown() {
-    //   driver.Quit();
-    // }
+    
 
    [TestMethod]
     public void untitled() {
-      driver = GetDriver();
+      test = extent.CreateTest(TestContext.TestName);
+      test.Log(Status.Info, "Navigate to DotNet website");
+      var driver = GetDriver();
       // Test name: Untitled
       // Step # | name | target | value | comment
       // 1 | open | / |  | 
@@ -94,6 +78,23 @@ namespace ws.SeleniumTests
       // 15 | click | css=.container:nth-child(1) |  | 
       driver.FindElement(By.CssSelector(".container:nth-child(1)")).Click();
     }
+
+    private ChromeDriver GetDriver()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--user-data-dir .");
+            options.AddArgument("--ignore-certificate-errors");
+             options.AddArgument("headless");
+
+            options.AcceptInsecureCertificates = true;
+            
+
+           
+            return new ChromeDriver("/tmp", options);
+        }
 
     [TestCleanup]
     public void endReporting()

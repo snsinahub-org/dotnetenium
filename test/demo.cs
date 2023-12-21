@@ -70,7 +70,7 @@ namespace ws.SeleniumTests
                 test.Log(Status.Info, "CSS class is matched with privacy");
             }  
                 
-           driver.Quit();
+           
         }
         
         [TestMethod]
