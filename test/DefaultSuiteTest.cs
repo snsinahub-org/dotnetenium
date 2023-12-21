@@ -28,7 +28,7 @@ namespace ws.SeleniumTests
     
     [ClassInitialize]
     public void SetUp() {
-      driver = GetDriver();
+      
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
@@ -56,6 +56,7 @@ namespace ws.SeleniumTests
 
    [TestMethod]
     public void untitled() {
+      driver = GetDriver();
       // Test name: Untitled
       // Step # | name | target | value | comment
       // 1 | open | / |  | 
