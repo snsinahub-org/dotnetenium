@@ -12,7 +12,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+// using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
@@ -21,13 +21,13 @@ namespace ws.SeleniumTests
   [TestClass]
   public class DefaultSuiteTest {
 
-    public TestContext? TestContext { get; set; }
+    // public TestContext? TestContext { get; set; }
     private IWebDriver driver;
     public IDictionary<string, object> vars {get; private set;}
     private IJavaScriptExecutor js;
     
     [ClassInitialize]
-    public static void SetUp(TestContext context) {
+    public void SetUp() {
       driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
