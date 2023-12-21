@@ -33,7 +33,7 @@ namespace ws.SeleniumTests
     
     [ClassInitialize]
     public static void Setup(TestContext context) {
-      var driver = GetDriver();
+      driver = new ChromeDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
