@@ -72,11 +72,11 @@ namespace ws.SeleniumTests
       // 10 | click | css=.display-4 |  | 
       driver.FindElement(By.CssSelector(".display-4")).Click();
       // 11 | assertText | css=.display-4 | Welcome | 
-      // Assert.That(driver.FindElement(By.CssSelector(".display-4")).Text, Is.EqualTo("Welcome"));
+      Assert.AreEqual("Welcome", driver.FindElement(By.CssSelector(".display-4")).Text);
       // 12 | click | css=.display-4 |  | 
       driver.FindElement(By.CssSelector(".display-4")).Click();
       // 13 | assertText | css=.display-4 | Welcome | 
-      // Assert.That(driver.FindElement(By.CssSelector(".display-4")).Text, Is.EqualTo("Welcome"));
+      Assert.AreEqual("Welcome", driver.FindElement(By.CssSelector(".display-4")).Text);
       // 14 | click | css=.pb-3 |  | 
       driver.FindElement(By.CssSelector(".pb-3")).Click();
       // 15 | click | css=.container:nth-child(1) |  | 
