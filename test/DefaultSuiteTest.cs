@@ -22,10 +22,30 @@ namespace ws.SeleniumTests
     private IJavaScriptExecutor js;
     [SetUp]
     public void SetUp() {
-      driver = new ChromeDriver();
+      driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
     }
+
+    private ChromeDriver GetDriver()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--user-data-dir .");
+            options.AddArgument("--ignore-certificate-errors");
+
+            options.AcceptInsecureCertificates = true;
+            
+
+            if(bool.Parse((string)TestContext.Properties["headless"]))
+            {
+                options.AddArgument("headless");
+            }
+
+            return new ChromeDriver("/tmp", options);
+        }
     [TearDown]
     protected void TearDown() {
       driver.Quit();
