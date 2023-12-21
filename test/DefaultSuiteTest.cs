@@ -13,7 +13,6 @@ using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 
@@ -26,7 +25,7 @@ namespace ws.SeleniumTests
     private IJavaScriptExecutor js;
     
     [ClassInitialize]
-    public void SetUp() {
+    public static void SetUp() {
       driver = GetDriver();
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
@@ -48,11 +47,11 @@ namespace ws.SeleniumTests
            
             return new ChromeDriver("/tmp", options);
         }
-    [TearDown]
-    protected void TearDown() {
-      driver.Quit();
-    }
-    
+    // [TearDown]
+    // protected void TearDown() {
+    //   driver.Quit();
+    // }
+
    [TestMethod]
     public void untitled() {
       // Test name: Untitled
@@ -91,6 +90,15 @@ namespace ws.SeleniumTests
       driver.FindElement(By.CssSelector(".pb-3")).Click();
       // 15 | click | css=.container:nth-child(1) |  | 
       driver.FindElement(By.CssSelector(".container:nth-child(1)")).Click();
+    }
+
+    [TestCleanup]
+    public void endReporting()
+    {
+        Console.WriteLine("TestCleanup");
+        extent.Flush();
+        // driver.Quit();
+
     }
   }
 }
