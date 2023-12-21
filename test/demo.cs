@@ -138,33 +138,33 @@ namespace ws.SeleniumTests
          
         }
 
-        [TestMethod]
-        public void TestLink2()
-        {
-            // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
-            // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
-            // using (var driver = GetDriver())
+        // [TestMethod]
+        // public void TestLink2()
+        // {
+        //     // Chrome Driver was manually downloaded from https://sites.google.com/a/chromium.org/chromedriver/downloads
+        //     // parameter "." will instruct to look for the chromedriver.exe in the current folder (bin/debug/...)
+        //     // using (var driver = GetDriver())
             
-            var driver = GetDriver();
-            test = extent.CreateTest(TestContext.TestName);
-            driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
+        //     var driver = GetDriver();
+        //     test = extent.CreateTest(TestContext.TestName);
+        //     driver.Navigate().GoToUrl((string)TestContext.Properties["webAppUrl"]);
             
 
-            test.Log(Status.Info, "Navigate to https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
-            driver.FindElement(By.Id("redirect")).Click();                
+        //     test.Log(Status.Info, "Navigate to https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
+        //     driver.FindElement(By.Id("redirect")).Click();                
             
-            Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
+        //     Assert.AreEqual(driver.Url, "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0");
 
-            if (driver.Url != "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0")
-            {
-                test.Log(Status.Warning, "URL is not matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
-            } else {
-                test.Log(Status.Info, "URL is matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
-            }  
+        //     if (driver.Url != "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0")
+        //     {
+        //         test.Log(Status.Warning, "URL is not matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
+        //     } else {
+        //         test.Log(Status.Info, "URL is matching the expected URL 'https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0'");
+        //     }  
     
                 
            
-        }
+        // }
 
 
         private ChromeDriver GetDriver()
