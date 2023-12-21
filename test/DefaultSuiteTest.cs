@@ -35,15 +35,12 @@ namespace ws.SeleniumTests
             options.AddArgument("--disable-dev-shm-usage");
             options.AddArgument("--user-data-dir .");
             options.AddArgument("--ignore-certificate-errors");
+             options.AddArgument("headless");
 
             options.AcceptInsecureCertificates = true;
             
 
-            if(bool.Parse((string)TestContext.Properties["headless"]))
-            {
-                options.AddArgument("headless");
-            }
-
+           
             return new ChromeDriver("/tmp", options);
         }
     [TearDown]
