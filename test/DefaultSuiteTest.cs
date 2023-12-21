@@ -23,12 +23,13 @@ namespace ws.SeleniumTests
 
     // public TestContext? TestContext { get; set; }
     private IWebDriver driver;
-    public IDictionary<string, object> vars {get; private set;}
+    public static IDictionary<string, object> vars {get; private set;}
     public TestContext? TestContext { get; set; }
-    private IJavaScriptExecutor js;
+    private static  IJavaScriptExecutor js;
 
     public static ExtentReports? extent;
     public static ExtentTest test;
+
     
     [ClassInitialize]
     public static void Setup(TestContext context) {
