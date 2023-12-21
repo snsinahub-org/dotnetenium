@@ -28,7 +28,7 @@ namespace ws.SeleniumTests
     private IJavaScriptExecutor js;
     
     [ClassInitialize]
-    public static void Setup(TestContext context)
+    public static void Setup(TestContext context) {
       
       js = (IJavaScriptExecutor)driver;
       vars = new Dictionary<string, object>();
